@@ -1,8 +1,7 @@
-# 📰 Daily News Digest  
+# 📰 FiNews.AI 
 
 _A Node.js web app that automatically sends the latest news to subscribers via email._  
 
-![Demo Screenshot]() *(optional: add a screenshot or GIF later)*  
 
 ## ✨ Features  
 - **Daily automated news delivery** – Subscribers receive curated updates.  
