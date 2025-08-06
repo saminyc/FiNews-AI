@@ -1,7 +1,10 @@
 const express = require('express');
 const nodemailer = require('nodemailer'); // for emailing directly from nodejs
 const { createClient } = require('@supabase/supabase-js');
+import { GoogleGenAI } from "@google/genai";
+
 require('dotenv').config()
+
 
 const app = express(); // setting express server
 
@@ -12,6 +15,14 @@ app.use(express.json());
 const supabaseUrl = process.env.SUPABASE_URL;
 const supabaseKey = process.env.SUPABASE_SERVICE_KEY;
 const supabase = createClient(supabaseUrl, supabaseKey);
+
+// Gemini agent for finance
+
+const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY);
+// For text-only input, use the gemini-2.5-flash-preview-05-20 model
+const model = genAI.getGenerativeModel({ model: "gemini-2.5-flash-preview-05-20" });
+
+
 
 // Main page endpoint
 app.get('/',(req,res)=>{
